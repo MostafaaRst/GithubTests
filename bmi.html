@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+Oh Oh Branch 1
+		<script>
+		function calculate() {
+			var weight=document.getElementById('b').value;
+			var height=document.getElementById('a').value;
+					
+				if(weight!='' && height!='') {
+					if  (height>20) {
+							var Mheight=height/100;
+							var bmi=weight/(Mheight*Mheight);
+								bmi=parseFloat(bmi).toFixed(2);
+							var bsa=(weight*height)/3600;
+								bsa=Math.sqrt(bsa);
+								bsa=parseFloat(bsa).toFixed(2);
+                                
+                        if(document.getElementById('male').checked) {
+							var ibw=((height -150)*1) + 48;
+								ibw=parseInt(ibw);
+							var lbw=(1.1*weight)-128*((weight*weight)/((100*Mheight)*(100*Mheight)));
+								lbw=parseInt(lbw);
+						}
+						if(document.getElementById('female').checked) {
+							var ibw=((height -150)*0.9) + 45;
+								ibw=parseInt(ibw);
+							var lbw=(1.07*weight)-148*((weight*weight)/((100*Mheight)*(100*Mheight)));
+								lbw=parseInt(lbw);
+						}
+                        
+                        document.getElementById('bsa_no').innerHTML=bsa+' „ — „—»⁄';
+						document.getElementById('bmi_no').innerHTML=bmi;
+						document.getElementById('ibw_no').innerHTML=ibw+' òÌ·Êê—„';
+						document.getElementById('lbw_no').innerHTML=lbw+' òÌ·Êê—„';
+						var desc='';
+						if(bmi<=18.5) desc='‘„« œç«— ò„»Êœ Ê“‰ Â” Ìœ !';
+						if(bmi>18.5 && bmi<=25) desc='¬ﬁ« òÊ—ÊÊ‘ ‘„« œ«—«Ì Ê“‰ ÿ»Ì⁄Ì Â” Ìœ .';
+						if(bmi>25 && bmi<=30) desc='¬ﬁ« òÊ—Ê‘ ‘„« œ«—«Ì «÷«›Â Ê“‰ Â” Ìœ .';
+						if(bmi>30 && bmi<=35) desc='‘„« œ«—«Ì ç«ﬁÌ „ Ê”ÿ Â” Ìœ.';
+						if(bmi>35 && bmi<=40) desc='‘„« œ«—«Ì ç«ﬁÌ “Ì«œ Â” Ìœ.';
+						if(bmi>40) desc='‘„« œ«—«Ì ç«ﬁÌ ›Êﬁ «·⁄«œÂ Â” Ìœ !';
+						document.getElementById('bmi-desc').innerHTML=desc;
+
+	
+					}
+                    
+						
+				}
+						
+					
+				
+		}
+		function addRepo(){
+			$msg='Mostafa';
+		}
+		</script>
+				 
+</head>
+<body style="background-image: url('bmi3.png');color:white;">
+
+<form action="action_page.php"
+oninput="x.value=parseInt(a.value);y.value=parseInt(b.value);" onload="calculate()">
+ 
+  100
+  <span style="background-image: url('bmi.png');height:20px;">
+  <input type="range" id="a" name="a" value="175" min="100" max="220" onchange="calculate()"></span>
+  <output name="x" id="x" for="a b"></output> Cm
+
+<br><br>
+   †30†
+  <span style="background-image: url('bmi.png');height:20px;">
+  <input type="range" id="b" name="b" value="75" min="30" max="200" onchange="calculate()"></span>
+  <output name="y" id="y" for="a b"></output> Kg
+
+  <br>
+  
+  
+  <br><br>
+  <fieldset style="width:150px;border:1px solid ;text-align:left;">
+ 
+  <input type="radio" name="gender" id="male" value="male" onclick="calculate()" checked> „—œ<br>
+  <input type="radio" name="gender" id="female" value="female" onclick="calculate()"> “‰<br>
+ 
+  </fieldset>
+  <br><br>
+  <button type="button" onclick="calculate()">Submit</button>
+  <p id="bsa_no">bsa</p>
+  <p id="bmi_no">bmi</p>
+  <p id="ibw_no">ibw</p>
+  <p id="lbw_no">lbw</p>
+  <p id="bmi-desc">desc</p>
+ <script>
+document.getElementById('x').innerHTML=parseInt(a.value);
+document.getElementById('y').innerHTML=parseInt(b.value);
+</script>
+</form>
+
+</body>
+</html>
