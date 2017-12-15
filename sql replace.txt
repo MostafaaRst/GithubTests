@@ -1,0 +1,5 @@
+  UPDATE [AProESSolution].[dbo].[Acc_da_MainAccount]
+SET title = REPLACE(title, 'í', N'í')
+
+
+select title from [AProESSolution].[dbo].[Acc_da_MainAccount]
